@@ -17,7 +17,7 @@ To use this feature in your devcontainer, add it to your `devcontainer.json` fil
 
 ```json
 "features": {
-    "ghcr.io/nkkko/devcontainer-huggingface-feature/huggingface:1": {
+    "ghcr.io/nkkko/features/huggingface:1": {
         "version": "latest",
         "cuda": false
     }
