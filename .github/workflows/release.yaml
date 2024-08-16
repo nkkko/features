@@ -1,4 +1,5 @@
 name: "Release dev container features & Generate Documentation"
+
 on:
   workflow_dispatch:
 
@@ -9,6 +10,7 @@ jobs:
     permissions:
       contents: write
       packages: write
+      pull-requests: write  # Added permission to write pull requests
     steps:
       - uses: actions/checkout@v3
 
@@ -66,8 +68,8 @@ jobs:
         run: devcontainer features test -f ${{ matrix.features }} -i ${{ matrix.baseImage }} .
 
   test-global:
-    runs-on: ubuntu-latest
     needs: deploy
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
