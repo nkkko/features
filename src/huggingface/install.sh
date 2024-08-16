@@ -7,9 +7,9 @@ echo "Activating feature 'huggingface'"
 VERSION="${VERSION:-"latest"}"
 CUDA="${CUDA:-"false"}"
 
-# Ensure Python is available
-if ! command -v python3 &> /dev/null; then
-    echo "Python is not installed. Installing Python..."
+# Ensure Python and pip are available
+if ! command -v python3 &> /dev/null || ! command -v pip3 &> /dev/null; then
+    echo "Installing Python and pip..."
     apt-get update
     apt-get install -y python3 python3-pip python3-venv
 fi
@@ -20,6 +20,9 @@ python3 -m venv $VENV_PATH
 
 # Activate the virtual environment
 source $VENV_PATH/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
 
 # Install Hugging Face Transformers
 echo "Installing Hugging Face Transformers ${VERSION}..."

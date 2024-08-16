@@ -1,7 +1,7 @@
 {
     "name": "Hugging Face",
     "id": "huggingface",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Installs Hugging Face libraries and tools",
     "options": {
         "version": {
@@ -21,6 +21,6 @@
         }
     },
     "installsAfter": [
-        "ghcr.io/devcontainers/features/python"
+        "ghcr.io/devcontainers/features/common-utils"
     ]
 }

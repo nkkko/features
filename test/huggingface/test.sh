@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# This test file will be executed against an auto-generated devcontainer.json that
-# includes the 'huggingface' feature with no options.
-
 set -e
 
 # Optional: Import test library
