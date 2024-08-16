@@ -4,8 +4,8 @@ set -e
 echo "Activating feature 'huggingface'"
 
 # Parse input arguments
-VERSION="${VERSION:-"latest"}"
-CUDA="${CUDA:-"false"}"
+VERSION="${VERSION:-latest}"
+CUDA="${CUDA:-false}"
 
 echo "Installation parameters:"
 echo "VERSION: $VERSION"
@@ -34,10 +34,10 @@ pip install --upgrade pip
 
 # Install Hugging Face Transformers
 echo "Installing Hugging Face Transformers ${VERSION}..."
-if [ "${VERSION}" = "latest" ]; then
+if [ "$VERSION" = "latest" ]; then
     pip install transformers
 else
-    pip install transformers==${VERSION}
+    pip install "transformers==$VERSION"
 fi
 
 # Verify Transformers installation
@@ -49,7 +49,7 @@ else
 fi
 
 # Install PyTorch
-if [ "${CUDA}" = "true" ]; then
+if [ "$CUDA" = "true" ]; then
     echo "Installing PyTorch with CUDA support..."
     pip install torch torchvision torchaudio
 else
@@ -60,7 +60,7 @@ fi
 # Verify PyTorch installation
 if python -c "import torch; print(torch.__version__)" &> /dev/null; then
     echo "PyTorch installed successfully."
-    if [ "${CUDA}" = "true" ]; then
+    if [ "$CUDA" = "true" ]; then
         if python -c "import torch; print(torch.cuda.is_available())" | grep -q "True"; then
             echo "CUDA is available for PyTorch."
         else
