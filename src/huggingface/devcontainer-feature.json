@@ -1,0 +1,26 @@
+{
+    "name": "Hugging Face",
+    "id": "huggingface",
+    "version": "1.0.1",
+    "description": "Installs Hugging Face libraries and tools",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "4.28.1",
+                "4.27.4"
+            ],
+            "default": "latest",
+            "description": "Select the version of Hugging Face Transformers to install"
+        },
+        "cuda": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install CUDA-enabled version of PyTorch"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/python"
+    ]
+}
