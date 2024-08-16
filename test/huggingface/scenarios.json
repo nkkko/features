@@ -2,13 +2,13 @@
     "huggingface_latest": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "huggingface": {}
+            "ghcr.io/nkkko/features/huggingface:1": {}
         }
     },
     "huggingface_specific_version": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "huggingface": {
+            "ghcr.io/nkkko/features/huggingface:1": {
                 "version": "4.28.1"
             }
         }
@@ -16,7 +16,7 @@
     "huggingface_with_cuda": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "huggingface": {
+            "ghcr.io/nkkko/features/huggingface:1": {
                 "cuda": true
             }
         }

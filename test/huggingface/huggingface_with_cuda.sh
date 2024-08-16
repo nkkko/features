@@ -15,9 +15,7 @@ check "tokenizers installed" python -c "import tokenizers; print(tokenizers.__ve
 check "sentencepiece installed" python -c "import sentencepiece; print(sentencepiece.__version__)"
 check "huggingface_hub installed" python -c "import huggingface_hub; print(huggingface_hub.__version__)"
 
-# Check if the installed version is the latest
-INSTALLED_VERSION=$(pip show transformers | grep Version | awk '{print $2}')
-LATEST_VERSION=$(pip install transformers== 2>&1 | grep -oP '(?<=\(from versions: ).*(?=\))' | tr ',' '\n' | sort -V | tail -n 1)
-check "transformers is latest" [ "$INSTALLED_VERSION" = "$LATEST_VERSION" ]
+# Check if CUDA is available
+check "CUDA is available" python -c "import torch; print(torch.cuda.is_available())" | grep "True"
 
 reportResults
