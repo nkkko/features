@@ -1,26 +1,32 @@
 {
-    "name": "Hugging Face",
-    "id": "huggingface",
-    "version": "1.0.2",
-    "description": "Installs Hugging Face libraries and tools",
-    "options": {
-        "version": {
-            "type": "string",
-            "proposals": [
-                "latest",
-                "4.28.1",
-                "4.27.4"
-            ],
-            "default": "latest",
-            "description": "Select the version of Hugging Face Transformers to install"
-        },
-        "cuda": {
-            "type": "boolean",
-            "default": false,
-            "description": "Install CUDA-enabled version of PyTorch"
-        }
+  "name": "Hugging Face",
+  "id": "huggingface",
+  "version": "1.0.2",
+  "description": "Installs Hugging Face libraries and tools",
+  "options": {
+    "version": {
+      "type": "string",
+      "proposals": ["latest", "4.28.1", "4.27.4", "4.26.0"],
+      "default": "latest",
+      "description": "Select the version of Hugging Face Transformers to install."
     },
-    "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils"
-    ]
+    "cuda": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable this option to install the CUDA-enabled version of PyTorch for GPU support."
+    },
+    "datasets_version": {
+      "type": "string",
+      "proposals": ["latest", "1.14.0", "1.13.3"],
+      "default": "latest",
+      "description": "Select the version of Hugging Face Datasets to install."
+    },
+    "tokenizers_version": {
+      "type": "string",
+      "proposals": ["latest", "0.11.6", "0.11.5"],
+      "default": "latest",
+      "description": "Select the version of Tokenizers to install."
+    }
+  },
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
 }
